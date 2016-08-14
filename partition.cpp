@@ -1501,7 +1501,7 @@ bool TWPartition::Repair() {
 			return false;
 		gui_msg(Msg("repairing_using=Repairing {1} using {2}...")(Display_Name)("fsck.f2fs"));
 		Find_Actual_Block_Device();
-		command = "/sbin/fsck.f2fs " + Actual_Block_Device;
+		command = "/sbin/fsck.f2fs -f " + Actual_Block_Device;
 		LOGINFO("Repair command: %s\n", command.c_str());
 		if (TWFunc::Exec_Cmd(command) == 0) {
 			gui_msg("done=Done.");
@@ -1865,7 +1865,7 @@ bool TWPartition::Wipe_EXT4() {
 	if (!UnMount(true))
 		return false;
 
-#if defined(HAVE_SELINUX) && defined(USE_EXT4)
+#if 0
 	int ret;
 	char *secontext = NULL;
 
