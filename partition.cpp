@@ -1902,10 +1902,7 @@ bool TWPartition::Wipe_EXT4() {
 			Command += " -l ";
 			Command += len;
 		}
-		if (TWFunc::Path_Exists("/file_contexts")) {
-			Command += " -S /file_contexts";
-		}
-		Command += " -a " + Mount_Point + " " + Actual_Block_Device;
+		Command += " " + Actual_Block_Device;
 		LOGINFO("make_ext4fs command: %s\n", Command.c_str());
 		if (TWFunc::Exec_Cmd(Command) == 0) {
 			Current_File_System = "ext4";
