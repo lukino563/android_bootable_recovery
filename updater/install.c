@@ -354,7 +354,7 @@ Value* FormatFn(const char* name, State* state, int argc, Expr* argv[]) {
             goto done;
         }
         const char *f2fs_path = "/sbin/mkfs.f2fs";
-        const char* const f2fs_argv[] = {"mkfs.f2fs", "-t0", "-d1", location, num_sectors, NULL};
+        const char* const f2fs_argv[] = {"mkfs.f2fs", "-t1", "-d1", location, num_sectors, NULL};
         int status = exec_cmd(f2fs_path, (char* const*)f2fs_argv);
         free(num_sectors);
         if (status != 0) {

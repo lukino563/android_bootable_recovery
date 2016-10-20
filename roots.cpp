@@ -263,7 +263,7 @@ int format_volume(const char* volume) {
                 return -1;
             }
             const char *f2fs_path = "/sbin/mkfs.f2fs";
-            const char* const f2fs_argv[] = {"mkfs.f2fs", "-t0", "-d1", v->blk_device, num_sectors, NULL};
+            const char* const f2fs_argv[] = {"mkfs.f2fs", "-t1", "-d1", v->blk_device, num_sectors, NULL};
 
             result = exec_cmd(f2fs_path, (char* const*)f2fs_argv);
             free(num_sectors);
